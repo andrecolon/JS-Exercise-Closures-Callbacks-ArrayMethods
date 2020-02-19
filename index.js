@@ -15,7 +15,7 @@
  * should return 'foofoo'.
  */
 function processFirstItem(stringList, callback) {
-    return callback(stringList[0])
+    return callback(stringList[0]) // Get first item in an array
 }
 
 
@@ -52,7 +52,7 @@ function processFirstItem(stringList, callback) {
 function processLength(list, callback) {
     return callback(list.length)
 }
-
+//get entire length using callback
 /**
  * ### Challenge `processLastItem`
  * 
@@ -68,9 +68,9 @@ function processLength(list, callback) {
  * should return 'barbar'.
  */
 function processLastItem(stringList, callback) {
-    return callback(stringList.slice([-1]))
+    return callback(stringList.slice(-1)[0]);
 }
-
+//Get last item in array --- slice(-1) is now applying the argument in the method of -1 then applied to the array starting at 0 - returning the -1 to array
 
 /**
  * ### Challenge `processSum`
@@ -89,9 +89,17 @@ function processLastItem(stringList, callback) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
  */
+
 function processSum(numberList, callback) {
-    return callback(numberList.reduce(processSum))
+
+    const total = numberList.reduce((acc, curr) => { return acc += curr }, 0);
+    return callback(total);
+
+    // arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValue])
+
+
 }
+
 
 /**
  * ### Challenge `processProduct`
@@ -111,8 +119,8 @@ function processSum(numberList, callback) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
  */
-function processProduct( /* CODE HERE */ ) {
-    /* CODE HERE */
+function processProduct(num1, num2, callback) {
+    return callback(5, 6)
 }
 
 /**
