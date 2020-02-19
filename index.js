@@ -92,8 +92,8 @@ function processLastItem(stringList, callback) {
 
 function processSum(numberList, callback) {
 
-    const total = numberList.reduce((acc, curr) => { return acc += curr }, 0);
-    return callback(total);
+    const sum = numberList.reduce((acc, curr) => { return acc += curr }, 0);
+    return callback(sum);
 
     // arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValue])
 
@@ -120,7 +120,9 @@ function processSum(numberList, callback) {
  * should return 1000.
  */
 function processProduct(num1, num2, callback) {
-    return callback(5, 6)
+
+    return callback()
+
 }
 
 /**
@@ -144,7 +146,8 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
  */
 function processContains( /* CODE HERE */ ) {
-    /* CODE HERE */
+
+
 }
 
 /**
@@ -188,8 +191,13 @@ function processDuplicateFree( /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASK
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
  */
-function getFullNames( /* CODE HERE */ ) {
-    /* CODE HERE */
+function getFullNames(runners) {
+    let fullNames = [];
+    runners.forEach((value) => {
+        fullNames.push(`${value.last_name} ${ value.first_name}`)
+    });
+    return fullNames
+
 }
 
 /**
@@ -204,8 +212,12 @@ function getFullNames( /* CODE HERE */ ) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
  */
-function firstNamesAllCaps( /* CODE HERE */ ) {
-    /* CODE HERE */
+function firstNamesAllCaps(runners) {
+    let capNames = [];
+    runners.forEach((value) => {
+        capNames.push(`${value.first_name.toUpperCase()}`)
+    });
+    return capNames
 }
 
 /**
