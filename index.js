@@ -119,12 +119,13 @@ function processSum(numberList, callback) {
  * should return 1000.
  */
 function processProduct(num1, num2, callback) {
-    let bigNum = function() {
-        return " is a big number!"
+    let bigNum = (num) => {
+        const product = num1 + num2;
     }
-    return callback(num2 + num2, bigNum)
-
+    return callback
 }
+
+console.log(processProduct())
 
 /**
  * ### Challenge `processContains`
@@ -147,9 +148,12 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
  */
 function processContains(item, list, callback) {
-    let stringMe = (list) => list ? 'nice!' : 'sad'
-    return stringMe
+    let whatsInHere = () => {
+        item === list ? true : false;
+    }
+    return callback
 }
+console.log(processContains())
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -196,16 +200,15 @@ function getFullNames(runners) {
     let fullNames = [];
     runners.forEach(value => {
         fullNames.push(`${value.last_name} ${ value.first_name}`)
-            // Why doesn't this work - fullNames.push(`${value.last_name.join(",")} ${ value.first_name}`)
 
     });
     return fullNames
-
 }
 
 
 /**
- * ### Challenge `firstNamesAllCaps`
+ * ### Challenge `
+                                    firstNamesAllCaps `
  * 
  * @instructions
  * The event director needs to have all the runners' first names 
@@ -214,7 +217,8 @@ function getFullNames(runners) {
  * 
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns an array with all the runners' first names in ALL CAPS.
- * The first names appear in the array in the same order the runners appear in the `runners` array.
+ * The first names appear in the array in the same order the runners appear in the `
+                                    runners ` array.
  */
 function firstNamesAllCaps(runners) {
     let capNames = [];
@@ -225,7 +229,8 @@ function firstNamesAllCaps(runners) {
 }
 
 /**
- * ### Challenge `getRunnersByTShirtSize`
+ * ### Challenge `
+                                    getRunnersByTShirtSize `
  * 
  * @instructions
  * The event director needs a way to find the runners that need
@@ -234,19 +239,21 @@ function firstNamesAllCaps(runners) {
  * 
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @param tShirtSize string (possible values are "S", "M", "L", "XL", "2XL", "3XL").
- * @returns an array containing only the runners that use the given `tShirtSize`.
- * The runners in the array appear in the same order they appear in the `runners` array.
+ * @returns an array containing only the runners that use the given `
+                                    tShirtSize `.
+ * The runners in the array appear in the same order they appear in the `
+                                    runners ` array.
  */
 function getRunnersByTShirtSize(runners, tShirtSize) {
     let bigShirts = []
-    runners.filter(value => {
-            bigShirts.push(`${value.shirt_size}`)
-        })
-        //let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
+    runners.filter(tShirtSize => bigShirts.push(tShirtSize.shirt_size === "L" || tShirtSize.shirt_size === "XL"))
+        //Filter() defined - let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
+
+    return bigShirts;
 }
 
 /**
- * ### Challenge `tallyUpDonations`
+ * ### Challenge `tallyUpDonations `
  * 
  * @instructions
  * The donations need to be tallied up and reported for tax purposes.
@@ -255,9 +262,9 @@ function getRunnersByTShirtSize(runners, tShirtSize) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
  */
-function tallyUpDonations(total, runners) {
+function tallyUpDonations(runners) {
     const tallied = runners.reduce((total, runners) => {
-        return total += runners;
+        return total += runners.donation;
     }, 0);
     return tallied;
 }
@@ -266,29 +273,34 @@ function tallyUpDonations(total, runners) {
 /////////////// CLOSURES ///////////////
 
 /**
- * ### Challenge `counterMaker`
+ * ### Challenge `
+                                    counterMaker `
  * 
  * @instructions
  * Fix this function so a counter produced with it will increment correctly!
  * Usage is as follows:
  * 
- * const counter = counterMaker()
- * counter() // should return 0
- * counter() // should return 1
- * counter() // should return 2
+const counter = counterMaker()
+ counter() // should return 0
+ counter() // should return 1
+ counter() // should return 2
  * etc
  */
 
 const counterMaker = () => {
     let count = 0;
-
-    return function counter() {
-        return ++count;
+    return function() {
+        return count++;
     }
 };
+const newCounter = counterMaker()
+newCounter()
+
+
 
 /**
- * ### Challenge `counterMakerWithLimit`
+ * ### Challenge `
+                                    counterMakerWithLimit `
  * 
  * @instructions
  * Implement a counter maker that takes a max value for the count.
@@ -307,9 +319,20 @@ const counterMaker = () => {
  * counter() // should return 0
  * etc
  */
-function counterMakerWithLimit( /* CODE HERE */ ) {
-    /* CODE HERE */
-}
+
+const counterMakerWithLimit = () => {
+    let count = 0;
+    return () => {
+        if (count < 4) {
+            return count++;
+        } else {
+            return count = 0;
+        }
+    }
+};
+const newCounterMakerWithLimit = counterMakerWithLimit()
+
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
