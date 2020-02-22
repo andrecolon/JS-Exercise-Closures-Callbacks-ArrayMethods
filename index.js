@@ -119,13 +119,10 @@ function processSum(numberList, callback) {
  * should return 1000.
  */
 function processProduct(num1, num2, callback) {
-    let bigNum = (num) => {
-        const product = num1 + num2;
-    }
-    return callback
+    return callback((num1 * num2))
 }
 
-console.log(processProduct())
+
 
 /**
  * ### Challenge `processContains`
@@ -198,13 +195,10 @@ function processDuplicateFree( /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASK
  */
 function getFullNames(runners) {
     let fullNames = [];
-    runners.forEach(value => {
-        fullNames.push(`${value.last_name} ${ value.first_name}`)
-
-    });
-    return fullNames
+    runners.forEach(soul => fullNames.push(`${soul.last_name}, ${soul.first_name}`));
+    return fullNames;
 }
-
+console.log(getFullNames())
 
 /**
  * ### Challenge `
@@ -245,9 +239,9 @@ function firstNamesAllCaps(runners) {
                                     runners ` array.
  */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-    let bigShirts = []
-    runners.filter(tShirtSize => bigShirts.push(tShirtSize.shirt_size === "L" || tShirtSize.shirt_size === "XL"))
-        //Filter() defined - let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
+    let bigShirts = [];
+    runners.filter(value => bigShirts.push(value.shirt_size === tShirtSize));
+    //Filter() defined - let newArray = arr.filter(callback(element[, index, [array]])[, thisArg])
 
     return bigShirts;
 }
